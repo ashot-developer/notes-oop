@@ -1,0 +1,44 @@
+.header {
+  background-image: linear-gradient(to right, #e940a8, #7d40e9);
+  color: white;
+  font-size: 30px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 75px;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .burger__menu {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-right: 45px;
+
+    span {
+      @extend %burger-item;
+
+      &::before {
+        content: "";
+        @extend %burger-item;
+        position: absolute;
+        top: 4px;
+      }
+
+      &::after {
+        content: "";
+        @extend %burger-item;
+        position: absolute;
+        bottom: 4px;
+      }
+    }
+  }
+}
