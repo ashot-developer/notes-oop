@@ -9,3 +9,10 @@ const FilterData = {
     { text: "Select", color: "rgb(113, 244, 232)" },
   ],
 };
+// Filter list Element
+const filterListDom = document.querySelector("ul.notes__filter");
+const filterListDomCloned = filterListDom.querySelector("li").cloneNode(true);
+
+// Color picker list Element
+const colorPickerDom = document.querySelector("ul.notes__colors--list");
+const colorPickerDomCloned = colorPickerDom.querySelector('li.color__item').cloneNode(true);

@@ -5,17 +5,31 @@ window.addEventListener("DOMContentLoaded", function () {
     alert(`Filter item ${e.target.innerText}`);
   };
 
-  const filterListDom = document.querySelector("ul.notes__filter");
-  const cloned = filterListDom.querySelector("li").cloneNode(true);
+  const createNote = (e) => {
+    e.preventDefault();
+    console.log("Create note");
+  };
+
+  // Before add, remove content
   filterListDom.innerHTML = "";
+  colorPickerDom.innerHTML = "";
 
   function addItem(item) {
+    // Inserting Filter component
     const FilterInstance = new Filter({
-      dom: cloned,
+      dom: filterListDomCloned,
       data: item,
       listener: filterNotes,
     });
-    filterListDom.appendChild(FilterInstance.dom);
+    filterListDom.appendChild(FilterInstance.$el);
+
+    // Inserting ColorPicker component
+    const ColorPickerInstance = new ColorPicker({
+      dom: colorPickerDomCloned.cloneNode(true),
+      data: item.color,
+      listener: createNote,
+    });
+    colorPickerDom.appendChild(ColorPickerInstance.$el);
   }
 
   FilterData.filterItems.forEach((item) => {
