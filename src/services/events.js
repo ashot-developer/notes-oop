@@ -11,6 +11,10 @@ const filterNotes = (e) => {
   alert(`Filter item ${e.target.innerText}`);
 };
 
+const openEditModal = (note) => {
+  console.log(note);
+};
+
 // Open and Close drawer
 const drawer = document.querySelector(".drawer");
 document.querySelector(".burger__menu").onclick = (e) => {
@@ -37,9 +41,9 @@ document.addEventListener("click", (e) => {
   textarea.addEventListener("blur", (e) => {
     e.preventDefault();
     setTimeout(() => {
-      if(e.target.closest(".notes__form").classList.contains('show')) {
+      if (e.target.closest(".notes__form").classList.contains("show")) {
         e.target.closest(".notes__form").classList.remove("show");
       }
-    }, 100)
+    }, 100);
   });
 });

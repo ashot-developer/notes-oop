@@ -9,10 +9,55 @@ const FilterData = {
     { text: "Select", color: "rgb(113, 244, 232)" },
   ],
 };
+
+const notes = [
+  {
+    id: Date.now(),
+    note: "Ashoot",
+    color: "rgb(154, 246, 154)",
+    created_at: Date.now(),
+  },
+  {
+    id: Date.now(),
+    note: "Ashoot",
+    color: "rgb(154, 246, 154)",
+    created_at: Date.now(),
+  },
+  {
+    id: Date.now(),
+    note: "Ashoot",
+    color: "rgb(154, 246, 154)",
+    created_at: Date.now(),
+  },
+  {
+    id: Date.now(),
+    note: "Ashoot",
+    color: "rgb(154, 246, 154)",
+    created_at: Date.now(),
+  },
+  {
+    id: Date.now(),
+    note: "Ashoot",
+    color: "rgb(154, 246, 154)",
+    created_at: Date.now(),
+  },
+  {
+    id: Date.now(),
+    note: "Ashoottt",
+    color: "rgb(154, 246, 154)",
+    created_at: Date.now(),
+  },
+];
 // Filter list Element
 const filterListDom = document.querySelector("ul.notes__filter");
 const filterListDomCloned = filterListDom.querySelector("li").cloneNode(true);
 
 // Color picker list Element
 const colorPickerDom = document.querySelector("ul.notes__colors--list");
-const colorPickerDomCloned = colorPickerDom.querySelector('li.color__item').cloneNode(true);
+const colorPickerDomCloned = colorPickerDom
+  .querySelector("li.color__item")
+  .cloneNode(true);
+
+// Note element
+const noteList = document.querySelector(".notes__list");
+const clonedNote = noteList.querySelector(".notes__list--box").cloneNode(true);

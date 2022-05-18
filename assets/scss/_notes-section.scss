@@ -53,4 +53,47 @@
       }
     }
   }
+
+  &__block {
+    padding: 30px 10px;
+
+    .notes__list {
+      display: flex;
+      flex-wrap: wrap;
+
+      &--box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 260px;
+        padding: 15px;
+        margin: 5px;
+        min-height: 70px;
+        box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+          0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+        cursor: pointer;
+
+        .note__title {
+          font-weight: 500;
+          font-size: 20px;
+        }
+
+        .note__header {
+          pointer-events: none;
+        }
+
+        .note__footer {
+          text-align: right;
+          pointer-events: none;
+        }
+
+        .note__date {
+          font-size: 12px;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
 }

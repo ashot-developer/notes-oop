@@ -1,8 +1,9 @@
 window.addEventListener("DOMContentLoaded", function () {
   // Filter data init start
-  // Before add, remove content
+  // Before insert, empty dom
   filterListDom.innerHTML = "";
   colorPickerDom.innerHTML = "";
+  noteList.innerHTML = "";
 
   function addItem(item) {
     // Inserting Filter component
@@ -23,6 +24,20 @@ window.addEventListener("DOMContentLoaded", function () {
       colorPickerDom.appendChild(ColorPickerInstance.$el);
     }
   }
+
+  function addNote(item) {
+    // Inserting Note component
+    const NoteInstance = new Note({
+      dom: clonedNote.cloneNode(true),
+      data: item,
+      listeners: { onClick: openEditModal },
+    });
+    noteList.appendChild(NoteInstance.$el);
+  }
+
+  notes.forEach((note) => {
+    addNote(note);
+  });
 
   FilterData.filterItems.forEach((item) => {
     addItem(item);
