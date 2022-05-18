@@ -34,4 +34,12 @@ document.addEventListener("click", (e) => {
     e.preventDefault();
     e.target.closest(".notes__form").classList.add("show");
   });
+  textarea.addEventListener("blur", (e) => {
+    e.preventDefault();
+    setTimeout(() => {
+      if(e.target.closest(".notes__form").classList.contains('show')) {
+        e.target.closest(".notes__form").classList.remove("show");
+      }
+    }, 100)
+  });
 });
