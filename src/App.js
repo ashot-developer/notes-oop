@@ -2,7 +2,7 @@ window.addEventListener("DOMContentLoaded", function () {
   // Filter data init start
   // Before insert, empty dom
   filterListDom.innerHTML = "";
-  colorPickerDom.innerHTML = "";
+  colorPickerDom.forEach((elm) => (elm.innerHTML = ""));
   noteList.innerHTML = "";
 
   function addItem(item) {
@@ -16,12 +16,14 @@ window.addEventListener("DOMContentLoaded", function () {
 
     // Inserting ColorPicker component
     if (item.color != "rgb(255, 255, 255)") {
-      const ColorPickerInstance = new ColorPicker({
-        dom: colorPickerDomCloned.cloneNode(true),
-        data: item.color,
-        listeners: { onClick: createNote },
+      [...colorPickerDom].map((elm) => {
+        const ColorPickerInstance = new ColorPicker({
+          dom: colorPickerDomCloned.cloneNode(true),
+          data: item.color,
+          listeners: { onClick: createNote },
+        });
+        elm.appendChild(ColorPickerInstance.$el);
       });
-      colorPickerDom.appendChild(ColorPickerInstance.$el);
     }
   }
 

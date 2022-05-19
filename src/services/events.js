@@ -57,6 +57,7 @@ const filterNotes = (e, data) => {
 
 const openEditModal = (note) => {
   console.log(note);
+  document.querySelector(".overlay-container").classList.add("show");
 };
 
 // Open and Close drawer

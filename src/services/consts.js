@@ -10,14 +10,14 @@ const FilterData = {
   ],
 };
 
-const notes = [ ];
+const notes = [];
 // Filter list Element
 const filterListDom = document.querySelector("ul.notes__filter");
 const filterListDomCloned = filterListDom.querySelector("li").cloneNode(true);
 
 // Color picker list Element
-const colorPickerDom = document.querySelector("ul.notes__colors--list");
-const colorPickerDomCloned = colorPickerDom
+const colorPickerDom = document.querySelectorAll("ul.notes__colors--list");
+const colorPickerDomCloned = colorPickerDom[0]
   .querySelector("li.color__item")
   .cloneNode(true);
 
