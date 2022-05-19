@@ -1,8 +1,41 @@
 // Create notes functionality
-const createNote = (e) => {
-  e.preventDefault();
-  e.target.closest(".notes__form").classList.remove("show");
-  console.log("Create note");
+const createNote = (e, color) => {
+  const formContainer = e.closest(".notes__form");
+  const notesHtmlList = [];
+  let noteTitle = formContainer.querySelector("textarea");
+  // check if value is empty note save note
+  if (!noteTitle.value) {
+    return;
+  }
+
+  const note = {
+    id: Date.now(),
+    note: noteTitle.value,
+    color: color,
+    created_at: Date.now(),
+  };
+
+  notes.push(note);
+  noteTitle.value = "";
+
+  // getting html notes for rendering
+  notes.forEach((note) => {
+    const NoteInstance = new Note({
+      dom: clonedNote.cloneNode(true),
+      data: note,
+      listeners: { onClick: openEditModal },
+    });
+    notesHtmlList.push(NoteInstance.$el);
+  });
+
+  const render = new Render({
+    dom: noteList,
+    data: notesHtmlList,
+  });
+  render.render();
+
+  // hide color picker component
+  formContainer.classList.remove("show");
 };
 
 // Filter notes functionality

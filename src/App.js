@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", function () {
       const ColorPickerInstance = new ColorPicker({
         dom: colorPickerDomCloned.cloneNode(true),
         data: item.color,
-        listener: createNote,
+        listeners: { onClick: createNote },
       });
       colorPickerDom.appendChild(ColorPickerInstance.$el);
     }

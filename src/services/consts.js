@@ -10,44 +10,7 @@ const FilterData = {
   ],
 };
 
-const notes = [
-  {
-    id: Date.now(),
-    note: "Ashoot",
-    color: "rgb(154, 246, 154)",
-    created_at: Date.now(),
-  },
-  {
-    id: Date.now(),
-    note: "Ashoot",
-    color: "rgb(154, 246, 154)",
-    created_at: Date.now(),
-  },
-  {
-    id: Date.now(),
-    note: "Ashoot",
-    color: "rgb(154, 246, 154)",
-    created_at: Date.now(),
-  },
-  {
-    id: Date.now(),
-    note: "Ashoot",
-    color: "rgb(154, 246, 154)",
-    created_at: Date.now(),
-  },
-  {
-    id: Date.now(),
-    note: "Ashoot",
-    color: "rgb(154, 246, 154)",
-    created_at: Date.now(),
-  },
-  {
-    id: Date.now(),
-    note: "Ashoottt",
-    color: "rgb(154, 246, 154)",
-    created_at: Date.now(),
-  },
-];
+const notes = [ ];
 // Filter list Element
 const filterListDom = document.querySelector("ul.notes__filter");
 const filterListDomCloned = filterListDom.querySelector("li").cloneNode(true);
