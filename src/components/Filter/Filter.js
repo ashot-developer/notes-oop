@@ -2,12 +2,24 @@ class Filter {
   constructor(params) {
     this.dom = params.dom.cloneNode(true);
     this.data = params.data;
-    this.listener = params.listener;
+    let { listeners } = params;
+    this.listeners = listeners;
+    this.handleClick = this.handleClick.bind(this);
+
     this.init();
   }
 
+  handleClick = (e) => {
+    console.log(e);
+    return this.listeners.onClick && this.listeners.onClick(e, this.data);
+  };
+
   bindEvents() {
-    this.dom.querySelector("a").addEventListener("click", this.listener);
+    this.dom
+      .querySelector("a")
+      .addEventListener("click", (e) =>
+        this.handleClick.call(null, e, this.data)
+      );
   }
 
   bindData() {

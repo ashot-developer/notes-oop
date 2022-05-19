@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const FilterInstance = new Filter({
       dom: filterListDomCloned,
       data: item,
-      listener: filterNotes,
+      listeners: { onClick: filterNotes },
     });
     filterListDom.appendChild(FilterInstance.$el);
 
