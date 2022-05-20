@@ -11,6 +11,7 @@ const FilterData = {
 };
 
 const drawer = document.querySelector(".drawer");
+const modalContainer = document.querySelector(".overlay-container");
 const notes = [];
 // Filter list Element
 const filterListDom = document.querySelector("ul.notes__filter");

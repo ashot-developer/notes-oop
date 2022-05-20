@@ -1,26 +1,40 @@
 // Create notes functionality
 const createNote = (e, color) => {
   const formContainer = e.closest(".notes__form");
+  let isUpdateForm = formContainer
+    .querySelector("form")
+    .getAttribute("data-update");
   let noteTitle = formContainer.querySelector("textarea");
   // check if value is empty note save note
   if (!noteTitle.value) {
     return;
   }
+  if (isUpdateForm) {
+    let noteId = formContainer.querySelector("form").getAttribute("data-id");
 
-  const note = {
-    id: Date.now(),
-    note: noteTitle.value,
-    color: color,
-    created_at: Date.now(),
-  };
+    notes.map((note) => {
+      if (note.id == noteId) {
+        note.note = noteTitle.value;
+        note.color = color;
+      }
+    });
+  } else {
+    const note = {
+      id: Date.now(),
+      note: noteTitle.value,
+      color: color,
+      created_at: Date.now(),
+    };
 
-  notes.push(note);
-  noteTitle.value = "";
+    notes.push(note);
+    noteTitle.value = "";
+  }
 
   renderNotes(notes);
 
-  // hide color picker component
+  // hide color picker and modal components
   formContainer.classList.remove("show");
+  modalContainer.classList.remove("show");
 };
 
 function renderNotes(notes) {
@@ -58,8 +72,10 @@ const filterNotes = (e, data) => {
 };
 
 const openEditModal = (note) => {
-  console.log(note);
-  document.querySelector(".overlay-container").classList.add("show");
+  modalContainer.querySelector("textarea").value = note.note;
+  modalContainer.querySelector("form").setAttribute("data-id", note.id);
+  modalContainer.querySelector("form").setAttribute("data-update", true);
+  modalContainer.classList.add("show");
 };
 
 // Open and Close drawer
