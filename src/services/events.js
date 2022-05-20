@@ -48,11 +48,13 @@ const filterNotes = (e, data) => {
 
   if (data.color == "rgb(255, 255, 255)") {
     renderNotes(notes);
+    drawer.classList.remove("show");
     return;
   }
 
   let filteredNotes = notes.filter((note) => note.color == data.color);
   renderNotes(filteredNotes);
+  drawer.classList.remove("show");
 };
 
 const openEditModal = (note) => {
@@ -61,7 +63,6 @@ const openEditModal = (note) => {
 };
 
 // Open and Close drawer
-const drawer = document.querySelector(".drawer");
 document.querySelector(".burger__menu").onclick = (e) => {
   e.preventDefault();
   setTimeout(() => {

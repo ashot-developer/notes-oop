@@ -10,6 +10,7 @@ const FilterData = {
   ],
 };
 
+const drawer = document.querySelector(".drawer");
 const notes = [];
 // Filter list Element
 const filterListDom = document.querySelector("ul.notes__filter");
