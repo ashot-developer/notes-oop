@@ -1,4 +1,4 @@
-// Create notes functionality
+// Create or Update notes functionality
 const createNote = (e, color) => {
   const formContainer = e.closest(".notes__form");
   let isUpdateForm = formContainer
@@ -34,7 +34,21 @@ const createNote = (e, color) => {
 
   // hide color picker and modal components
   formContainer.classList.remove("show");
-  modalContainer.classList.remove("show");
+  closeModal();
+};
+
+// Delete note functionality
+document.querySelector(".delete__node").onclick = (e) => {
+  e.preventDefault();
+  let noteId = e.target
+    .closest(".update-modal")
+    .querySelector("form")
+    .getAttribute("data-id");
+  let index = notes.findIndex((note) => note.id == noteId);
+  notes.splice(index, 1);
+  renderNotes(notes);
+
+  closeModal();
 };
 
 function renderNotes(notes) {
@@ -109,3 +123,8 @@ document.addEventListener("click", (e) => {
     }, 100);
   });
 });
+
+// Close modal
+function closeModal() {
+  modalContainer.classList.remove("show");
+}
