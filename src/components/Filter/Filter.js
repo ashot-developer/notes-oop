@@ -10,7 +10,6 @@ class Filter {
   }
 
   handleClick = (e) => {
-    console.log(e);
     return this.listeners.onClick && this.listeners.onClick(e, this.data);
   };
 
